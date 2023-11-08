@@ -12,7 +12,13 @@ import { profileAction } from './pages/Profile';
 import { LandingPageLoader } from './pages/Landing';
 import { statsLoader } from './pages/Stats';
 
-const getDarkTheme = localStorage.getItem('darkTheme') === 'true' ? true : false;
+let getDarkTheme;
+const theme = localStorage.getItem('darkTheme');
+if (!theme) {
+    getDarkTheme = true;
+} else {
+    getDarkTheme = localStorage.getItem('darkTheme') === 'true' ? true : false;
+}
 document.body.classList.toggle('dark-theme', getDarkTheme);
 
 const router = createBrowserRouter([
