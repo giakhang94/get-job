@@ -22,18 +22,19 @@ const DashboardLayout = ({ getDarkTheme }) => {
     const user = useLoaderData();
     const navigator = useNavigate();
     const [showSidebar, setShowSidebar] = useState(false);
-    const [isDarkTheme, setIsDarkTheme] = useState(false);
+    const [isDarkTheme, setIsDarkTheme] = useState(getDarkTheme);
+    console.log(isDarkTheme);
     const toggleDarkTheme = () => {
-        const newDarkTheme = !isDarkTheme;
-        setIsDarkTheme(newDarkTheme);
-        document.body.classList.toggle('dark-theme', newDarkTheme);
-        localStorage.setItem('darkTheme', newDarkTheme);
+        // const newDarkTheme = !isDarkTheme;
+        localStorage.setItem('darkTheme', !isDarkTheme);
+        setIsDarkTheme(!isDarkTheme);
+        document.body.classList.toggle('dark-theme');
     };
     useEffect(() => {
         if (getDarkTheme) {
-            setIsDarkTheme(true);
-            document.body.classList.toggle('dark-theme', getDarkTheme);
+            document.body.classList.add('dark-theme');
         }
+        setIsDarkTheme(getDarkTheme);
     }, [getDarkTheme]);
     const toggleSideBar = () => {
         setShowSidebar(!showSidebar);
