@@ -23,7 +23,6 @@ const DashboardLayout = ({ getDarkTheme }) => {
     const navigator = useNavigate();
     const [showSidebar, setShowSidebar] = useState(false);
     const [isDarkTheme, setIsDarkTheme] = useState(getDarkTheme);
-    console.log(isDarkTheme);
     const toggleDarkTheme = () => {
         // const newDarkTheme = !isDarkTheme;
         localStorage.setItem('darkTheme', !isDarkTheme);

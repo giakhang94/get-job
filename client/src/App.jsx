@@ -11,13 +11,16 @@ import { StatsLoader } from './pages/Admin';
 import { profileAction } from './pages/Profile';
 import { LandingPageLoader } from './pages/Landing';
 import { statsLoader } from './pages/Stats';
-
+let getDarkTheme = true;
 const theme = localStorage.getItem('darkTheme');
-console.log(theme);
-let getDarkTheme = localStorage.getItem('darkTheme') === 'true' ? true : false;
-console.log(getDarkTheme);
+if (!theme) {
+    getDarkTheme = true;
+} else {
+    getDarkTheme = localStorage.getItem('darkTheme') === 'true' ? true : false;
+}
+
 if (getDarkTheme) {
-    document.body.classList.toggle('dark-theme', getDarkTheme);
+    document.body.classList.add('dark-theme');
 }
 
 const router = createBrowserRouter([
