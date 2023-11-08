@@ -14,7 +14,8 @@ import { statsLoader } from './pages/Stats';
 
 let getDarkTheme;
 const theme = localStorage.getItem('darkTheme');
-if (!theme) {
+console.log(theme);
+if (theme === null) {
     getDarkTheme = true;
 } else {
     getDarkTheme = localStorage.getItem('darkTheme') === 'true' ? true : false;
