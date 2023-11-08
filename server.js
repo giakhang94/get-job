@@ -68,7 +68,7 @@ app.use('/api/v1/jobs', authenticateUser, jobRouter);
 app.use('/api/v1/user', userRouter);
 
 app.get('*', (req, res) => {
-    res.sendFile(path.resolve(__dirname, './public', '/index.html'));
+    res.sendFile(path.resolve(__dirname, './public', 'index.html'));
 });
 
 app.use('*', (req, res) => {
